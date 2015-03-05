@@ -1,18 +1,20 @@
 # nerdzeu/docker
 
-# Usage
-```sh
-docker pull nerdzeu/docker
-docker run -i -t -d -P nerdzeu/docker
-```
-
-Than look the output of `iptables -L` and edit `/etc/hosts` according to your container IP. Add the line `local.nerdz.eu <ip>`
-
 # Develop
 
 ```sh
-docker build -t <name> .
-docker run -P -it -v /var/run/dbus:/var/run/dbus -v /run/systemd:/run/systemd -v /etc/systemd/system:/etc/systemd/system <container id>
+docker build -t nerdzeu/base .
+docker run -d -p 8080:80 --name nerdz nerdzeu/base
+
+```
+
+Visit http://localhost:8080
+
+# Open an interactive shell
+
+```sh
+docker exec -ti nerdz /bin/bash
+
 ```
 
 # Reverse proxy
