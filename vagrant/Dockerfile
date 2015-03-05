@@ -1,4 +1,4 @@
-FROM nerdz/base
+FROM nerdzeu/base
 
 # Create vagrant user and group
 
