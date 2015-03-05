@@ -61,6 +61,6 @@ EXPOSE 80
 EXPOSE 443
 EXPOSE 5432
 
-ENTRYPOINT /usr/bin/nginx -g 'pid /run/nginx.pid; error_log stderr;' && \
-    su - postgres -c 'pg_ctl -D /var/lib/postgres/data -l /dev/null start' && \
-    /usr/bin/php-fpm --pid /run/php-fpm/php-fpm.pid && /bin/bash
+ENTRYPOINT su - postgres -c 'pg_ctl -D /var/lib/postgres/data -l /dev/null start' && \
+        /usr/bin/php-fpm --pid /run/php-fpm/php-fpm.pid && \
+	/usr/bin/nginx -g 'pid /run/nginx.pid; error_log stderr; daemon off;'
