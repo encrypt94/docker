@@ -25,6 +25,7 @@ vagrant up
 vagrant ssh
 
 ````
+# Reverse proxy
 
 ```sh
 apt-get install nginx dnsmasq
