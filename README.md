@@ -17,7 +17,14 @@ docker exec -ti nerdz /bin/bash
 
 ```
 
-# Reverse proxy
+# Use with Vagrant
+
+```sh                                             
+docker build -t nerdzeu/base .                    
+vagrant up
+vagrant ssh
+
+````
 
 ```sh
 apt-get install nginx dnsmasq
